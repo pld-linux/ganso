@@ -5,15 +5,15 @@ Version:	0.2.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/ganso/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/ganso/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am_fix.patch
 URL:		http://ganso.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.0
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	libxml-devel
 BuildRequires:	smpeg-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
