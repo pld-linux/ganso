@@ -1,0 +1,57 @@
+--- ganso-0.2.0/src/gui/file_view.cc.orig	2001-02-02 18:59:30.000000000 +0100
++++ ganso-0.2.0/src/gui/file_view.cc	2004-03-28 22:05:51.856156328 +0200
+@@ -107,14 +107,14 @@
+   {
+     GNOME_APP_UI_ITEM, N_("About File Image Stream"),
+     NULL,
+-    on_about_constant_image_stream1_activate, NULL, NULL,
++    (gpointer)on_about_constant_image_stream1_activate, NULL, NULL,
+     GNOME_APP_PIXMAP_NONE, NULL,
+     0, (GdkModifierType)0, NULL
+   },
+   {
+     GNOME_APP_UI_ITEM, N_("About GAnSO"),
+     NULL,
+-    on_about_ganso1_activate, NULL, NULL,
++    (gpointer)on_about_ganso1_activate, NULL, NULL,
+     GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT,
+     0, (GdkModifierType)0, NULL
+   },
+--- ganso-0.2.0/src/gui/seq_view.cc.orig	2001-02-02 18:59:30.000000000 +0100
++++ ganso-0.2.0/src/gui/seq_view.cc	2004-03-28 22:06:27.285770208 +0200
+@@ -108,14 +108,14 @@
+   {
+     GNOME_APP_UI_ITEM, N_("About Sequential Image Stream"),
+     NULL,
+-    on_about_time_comp_image_stream1_activate, NULL, NULL,
++    (gpointer)on_about_time_comp_image_stream1_activate, NULL, NULL,
+     GNOME_APP_PIXMAP_NONE, NULL,
+     0, (GdkModifierType)0, NULL
+   },
+   {
+     GNOME_APP_UI_ITEM, N_("About GAnSO"),
+     NULL,
+-    on_about_ganso1_activate, NULL, NULL,
++    (gpointer)on_about_ganso1_activate, NULL, NULL,
+     GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT,
+     0, (GdkModifierType)0, NULL
+   },
+--- ganso-0.2.0/src/gui/concurrent_view.cc.orig	2001-02-02 18:59:30.000000000 +0100
++++ ganso-0.2.0/src/gui/concurrent_view.cc	2004-03-28 22:06:54.265668640 +0200
+@@ -108,14 +108,14 @@
+   {
+     GNOME_APP_UI_ITEM, N_("About Concurrent Image Stream"),
+     NULL,
+-    on_about_concurrent_image_stream1_activate, NULL, NULL,
++    (gpointer)on_about_concurrent_image_stream1_activate, NULL, NULL,
+     GNOME_APP_PIXMAP_NONE, NULL,
+     0, (GdkModifierType)0, NULL
+   },
+   {
+     GNOME_APP_UI_ITEM, N_("About GAnSO"),
+     NULL,
+-    on_about_ganso2_activate, NULL, NULL,
++    (gpointer)on_about_ganso2_activate, NULL, NULL,
+     GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT,
+     0, (GdkModifierType)0, NULL
+   },
