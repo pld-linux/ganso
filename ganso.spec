@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/ganso/%{name}-%{version}.tar.bz2
+# Source0-md5:	629daa8af0dc91efd1dd617858102415
 Patch0:		%{name}-am_fix.patch
 URL:		http://ganso.sourceforge.net/
 BuildRequires:	autoconf
