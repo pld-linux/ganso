@@ -4,8 +4,7 @@ diff -urN ganso-0.2.0.orig/codecs/input/video/mpeg/Makefile.am ganso-0.2.0/codec
 @@ -2,7 +2,7 @@
          $(GNOME_INCLUDEDIR) `smpeg-config --cflags`
  
--mpeg_la_LIBADD = -lsmpeg
-+mpeg_la_LIBADD = -L/usr/X11R6/lib -lsmpeg
+ mpeg_la_LIBADD = -lsmpeg
 -mpeg_la_LDFLAGS = $(extra_libraries) -module -no-undefined -avoid-version
 +mpeg_la_LDFLAGS = -module -no-undefined -avoid-version
  
