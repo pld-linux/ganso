@@ -42,7 +42,7 @@ gettextize --copy --force
 aclocal -I macros
 autoconf
 automake -a -c
-CXXFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -fno-rtti -fno-exceptions -fno-implicit-templates"
+CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -fno-implicit-templates"
 %configure \
 	--disable-static
 %{__make}
