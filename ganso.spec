@@ -59,7 +59,7 @@ libtoolize --copy --force
 gettextize --copy --force
 aclocal -I macros
 autoconf
-automake -a -c
+automake -a -c -f
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -fno-implicit-templates"
 %configure \
 	--disable-static
