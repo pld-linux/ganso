@@ -19,8 +19,6 @@ BuildRequires:	smpeg-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/X11
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 GAnSO is a powerful Animation Studio that lets you create your own
