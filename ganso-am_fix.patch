@@ -1,6 +1,43 @@
-diff -Nru ganso-0.1.1/codecs/video/ucbmpeg/Makefile.am ganso-0.1.1.new/codecs/video/ucbmpeg/Makefile.am
---- ganso-0.1.1/codecs/video/ucbmpeg/Makefile.am	Mon Aug 21 01:00:02 2000
-+++ ganso-0.1.1.new/codecs/video/ucbmpeg/Makefile.am	Sat Mar  3 15:17:04 2001
+diff -urN ganso-0.2.0.orig/codecs/input/video/mpeg/Makefile.am ganso-0.2.0/codecs/input/video/mpeg/Makefile.am
+--- ganso-0.2.0.orig/codecs/input/video/mpeg/Makefile.am	Fri Feb  2 18:59:31 2001
++++ ganso-0.2.0/codecs/input/video/mpeg/Makefile.am	Wed Aug  7 00:05:50 2002
+@@ -2,7 +2,7 @@
+         $(GNOME_INCLUDEDIR) `smpeg-config --cflags`
+ 
+-mpeg_la_LIBADD = -lsmpeg
++mpeg_la_LIBADD = -L/usr/X11R6/lib -lsmpeg
+-mpeg_la_LDFLAGS = $(extra_libraries) -module -no-undefined -avoid-version
++mpeg_la_LDFLAGS = -module -no-undefined -avoid-version
+ 
+ sublib_LTLIBRARIES = mpeg.la
+ 
+diff -urN ganso-0.2.0.orig/codecs/input/video/png/Makefile.am ganso-0.2.0/codecs/input/video/png/Makefile.am
+--- ganso-0.2.0.orig/codecs/input/video/png/Makefile.am	Fri Feb  2 18:59:31 2001
++++ ganso-0.2.0/codecs/input/video/png/Makefile.am	Wed Aug  7 00:06:01 2002
+@@ -2,7 +2,7 @@
+         $(GNOME_INCLUDEDIR)
+ 
+ png_la_LIBADD = -lpng
+-png_la_LDFLAGS = $(extra_libraries) -module -no-undefined -avoid-version
++png_la_LDFLAGS = -module -no-undefined -avoid-version
+ 
+ sublib_LTLIBRARIES = png.la
+ 
+diff -urN ganso-0.2.0.orig/codecs/input/video/ppm/Makefile.am ganso-0.2.0/codecs/input/video/ppm/Makefile.am
+--- ganso-0.2.0.orig/codecs/input/video/ppm/Makefile.am	Fri Feb  2 18:59:31 2001
++++ ganso-0.2.0/codecs/input/video/ppm/Makefile.am	Wed Aug  7 00:06:10 2002
+@@ -2,7 +2,7 @@
+         $(GNOME_INCLUDEDIR)
+ 
+ ppm_la_LIBADD =
+-ppm_la_LDFLAGS = $(extra_libraries) -module -no-undefined -avoid-version
++ppm_la_LDFLAGS = -module -no-undefined -avoid-version
+ 
+ sublib_LTLIBRARIES = ppm.la
+ 
+diff -urN ganso-0.2.0.orig/codecs/output/video/ucbmpeg/Makefile.am ganso-0.2.0/codecs/output/video/ucbmpeg/Makefile.am
+--- ganso-0.2.0.orig/codecs/output/video/ucbmpeg/Makefile.am	Fri Feb  2 18:59:32 2001
++++ ganso-0.2.0/codecs/output/video/ucbmpeg/Makefile.am	Wed Aug  7 00:06:25 2002
 @@ -2,7 +2,7 @@
          $(GNOME_INCLUDEDIR)
  
@@ -10,9 +47,9 @@ diff -Nru ganso-0.1.1/codecs/video/ucbmpeg/Makefile.am ganso-0.1.1.new/codecs/vi
  
  sublib_LTLIBRARIES = ucbmpeg.la
  
-diff -Nru ganso-0.1.1/plugins/sample/Makefile.am ganso-0.1.1.new/plugins/sample/Makefile.am
---- ganso-0.1.1/plugins/sample/Makefile.am	Mon Aug 21 01:00:02 2000
-+++ ganso-0.1.1.new/plugins/sample/Makefile.am	Sat Mar  3 15:19:09 2001
+diff -urN ganso-0.2.0.orig/plugins/sample/Makefile.am ganso-0.2.0/plugins/sample/Makefile.am
+--- ganso-0.2.0.orig/plugins/sample/Makefile.am	Fri Feb  2 18:59:33 2001
++++ ganso-0.2.0/plugins/sample/Makefile.am	Wed Aug  7 00:06:53 2002
 @@ -2,7 +2,7 @@
          $(GNOME_INCLUDEDIR) $(XML_CFLAGS)
  
