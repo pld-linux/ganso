@@ -1,71 +1,69 @@
-# Note that this is NOT a relocatable package
-%define ver      0.1.1
-%define  RELEASE 1
-%define  rel     %{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
-%define prefix   /usr
+Summary:	GNOME Animation Studio
+Name:		ganso
+Version:	0.1.1
+Release:	1
+License:	GPL
+Group:		X11/Applications/Graphics
+Source0:	ftp://ceu.fi.udc.es/os/linux/gpul/%{name}-%{version}.tar.bz2
+BuildRequires:	gettext-devel
+BuildRequires:	gnome-libs-devel >= 1.0.0
+BuildRequires:	libstdc++-devel
+BuildRequires:	libxml-devel
+URL:		http://ganso.gpul.org
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-Summary: GNOME Animation Studio
-Name: ganso
-Version: %ver
-Release: %rel
-Copyright: GPL
-Group: Graphics
-Source: ftp://ceu.fi.udc.es/os/linux/gpul/ganso-%{ver}.tar.bz2
-
-BuildRoot: /var/tmp/ganso-%{PACKAGE_VERSION}-root
-Obsoletes: gnome
-
-URL: http://ganso.gpul.org
-Docdir: %{prefix}/doc
-
-
-Requires: gnome-libs >= 1.0.0
+%define		_sysconfdir	/etc/X11
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
-GAnSO is a powerful Animation Studio that lets you create your own videos
-with and without sound.
+GAnSO is a powerful Animation Studio that lets you create your own
+videos with and without sound.
 
 It can write as much formats as codecs you install in your system.
 
-%changelog
-* Fri Jun 30 2000 Ruben Lopez Gomez <ryu@mundivia.es>
-- Created 
+This package includes the core, a MPEG-1 codec and a sample plug-in
+which has a filter, a stream editor and a template, just to show how
+easy is to extend GAnSO, but which can be usefull to build some
+videos, as this filter performs progressive alpha
+decreasing/increasing of a stream, effect that is very used in
+professional creations to change from one video to another one while
+both keep animated.
 
 %prep
-%setup
+%setup -q
 
 %build
-# libtool can't deal with all the alpha variations but and alpha is an alpha
-# in this context.
-%ifarch alpha
-   CFLAGS="$RPM_OPT_FLAGS" ./configure --host=alpha-redhat-linux --prefix=%prefix 
-%else
-   CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --sysconfdir=/etc
-%endif
-if [ ! -z "$SMP" ]; then
-	make -j$SMP MAKE="make -j$SMP"
-else
-	make
-fi
+CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions -fno-implicit-templates"; export CXXFLAGS
+gettextize --copy --force
+%configure \
+	--disable-static
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/etc
-make sysconfdir=$RPM_BUILD_ROOT/etc prefix=$RPM_BUILD_ROOT%{prefix} install
+
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/ganso/{codecs,plugins}/*.so
+
+gzip -9nf AUTHORS ChangeLog NEWS README \
+	$RPM_BUILD_ROOT%{_mandir}/man1/*
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
-
-%files
-%defattr(-, root, root)
-
-%doc AUTHORS COPYING ChangeLog NEWS README
-%{prefix}/bin/*
-%{prefix}/lib/lib*.so.*
-
-%files devel
-%defattr(-, root, root)
+%files -f %{name}.lang
+%defattr(644,root,root,755)
+%doc *.gz
+%dir %{_sysconfdir}/ganso
+%config %{_sysconfdir}/ganso/ganso.conf
+%attr(755,root,root) %{_bindir}/*
+%dir %{_libdir}/ganso
+%dir %{_libdir}/ganso/codecs
+%dir %{_libdir}/ganso/plugins
+%attr(755,root,root) %{_libdir}/ganso/codecs/*
+%attr(755,root,root) %{_libdir}/ganso/plugins/*
+%{_mandir}/man1/*
