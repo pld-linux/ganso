@@ -1,4 +1,5 @@
 Summary:	GAnSO - Gnome Animation StudiO
+Summary(pl):	Studio animacji dla GNOME
 Name:		ganso
 Version:	0.1.1
 Release:	3
@@ -9,6 +10,8 @@ Group(pl):	X11/Aplikacje/Grafika
 Source0:	ftp://ftp.gpul.org/gpul/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am_fix.patch
 URL:		http://www.gpul.org/proyectos/ganso/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.0
 BuildRequires:	libstdc++-devel
@@ -32,6 +35,20 @@ videos, as this filter performs progressive alpha
 decreasing/increasing of a stream, effect that is very used in
 professional creations to change from one video to another one while
 both keep animated.
+
+%description -l pl
+GAnSO (Gnome Animation StudiO) to studio animacji pozwalaj±ce tworzyæ
+w³asne filmy z d¼wiêkiem lub bez.
+
+Mo¿e zapisywaæ w takich formatach, dla jakich codeki masz w systemie.
+
+Ten pakiet zawiera g³ówn± czê¶æ GAnSO, codec MPEG-1 oraz przyk³adow±
+wtyczkê, która zawiera filtr, edytor strumieni i wzorzec, ¿eby pokazaæ
+jak ³atwo mo¿na rozszerzaæ GAnSO, ale mo¿e byæ tak¿e u¿yteczna przy
+tworzeniu filmów, jako ¿e ten filtr przeprowadza progresywne
+zmniejszanie/zwiêkszanie kana³u alpha strumienia, co daje efekt
+czêsto u¿ywany w profesjonalnych filmach - przej¶cie z jednego obrazu
+do drugiego podczas gdy oba s± animowane.
 
 %prep
 %setup -q
