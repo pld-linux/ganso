@@ -1,17 +1,17 @@
 Summary:	GAnSO - Gnome Animation StudiO
 Name:		ganso
 Version:	0.1.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(de):	X11/Applikationen/Grafik
 Group(pl):	X11/Aplikacje/Grafika
 Source0:	ftp://ftp.gpul.org/gpul/%{name}-%{version}.tar.bz2
+URL:		http://www.gpul.org/proyectos/ganso/
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml-devel
-URL:		http://www.gpul.org/proyectos/ganso/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/X11
@@ -36,9 +36,11 @@ both keep animated.
 %setup -q
 
 %build
-CXXFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -fno-rtti -fno-exceptions -fno-implicit-templates"
-export CXXFLAGS
 gettextize --copy --force
+aclocal -I macros
+autoconf
+automake -a -c
+CXXFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -fno-rtti -fno-exceptions -fno-implicit-templates"
 %configure \
 	--disable-static
 %{__make}
