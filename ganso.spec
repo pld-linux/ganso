@@ -1,4 +1,4 @@
-Summary:	GAnSO - Gnome Animation StudiO
+Summary:	GAnSO - GNOME Animation StudiO
 Summary(pl):	Studio animacji dla GNOME
 Name:		ganso
 Version:	0.2.0
@@ -36,7 +36,7 @@ professional creations to change from one video to another one while
 both keep animated.
 
 %description -l pl
-GAnSO (Gnome Animation StudiO) to studio animacji pozwalaj±ce tworzyæ
+GAnSO (GNOME Animation StudiO) to studio animacji pozwalaj±ce tworzyæ
 w³asne filmy z d¼wiêkiem lub bez.
 
 Mo¿e zapisywaæ w takich formatach, dla jakich codeki masz w systemie.
