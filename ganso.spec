@@ -5,8 +5,6 @@ Version:	0.1.1
 Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
-Group(de):	X11/Applikationen/Grafik
-Group(pl):	X11/Aplikacje/Grafika
 Source0:	ftp://ftp.gpul.org/gpul/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am_fix.patch
 URL:		http://www.gpul.org/proyectos/ganso/
