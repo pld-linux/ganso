@@ -55,7 +55,7 @@ drugiego podczas gdy oba s± animowane.
 
 %build
 rm -f missing
-libtoolize --copy --force
+%{__libtoolize}
 gettextize --copy --force
 aclocal -I macros
 %{__autoconf}
