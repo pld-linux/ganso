@@ -12,6 +12,7 @@ Patch0:		%{name}-am_fix.patch
 URL:		http://www.gpul.org/proyectos/ganso/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.0
 BuildRequires:	libstdc++-devel
