@@ -1,13 +1,13 @@
 Summary:	GAnSO - Gnome Animation StudiO
 Summary(pl):	Studio animacji dla GNOME
 Name:		ganso
-Version:	0.1.1
-Release:	3
+Version:	0.2.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.gpul.org/gpul/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/ganso/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am_fix.patch
-URL:		http://www.gpul.org/proyectos/ganso/
+URL:		http://ganso.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -51,7 +51,7 @@ drugiego podczas gdy oba s± animowane.
 
 %prep
 %setup -q
-%patch -p1
+#%patch -p1
 
 %build
 rm -f missing
@@ -70,8 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS ChangeLog NEWS README
-
 %find_lang %{name}
 
 %clean
@@ -79,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS ChangeLog NEWS README
 %dir %{_sysconfdir}/ganso
 %config %{_sysconfdir}/ganso/ganso.conf
 %attr(755,root,root) %{_bindir}/*
