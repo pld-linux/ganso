@@ -45,9 +45,9 @@ Ten pakiet zawiera g³ówn± czê¶æ GAnSO, codec MPEG-1 oraz przyk³adow±
 wtyczkê, która zawiera filtr, edytor strumieni i wzorzec, ¿eby pokazaæ
 jak ³atwo mo¿na rozszerzaæ GAnSO, ale mo¿e byæ tak¿e u¿yteczna przy
 tworzeniu filmów, jako ¿e ten filtr przeprowadza progresywne
-zmniejszanie/zwiêkszanie kana³u alpha strumienia, co daje efekt
-czêsto u¿ywany w profesjonalnych filmach - przej¶cie z jednego obrazu
-do drugiego podczas gdy oba s± animowane.
+zmniejszanie/zwiêkszanie kana³u alpha strumienia, co daje efekt czêsto
+u¿ywany w profesjonalnych filmach - przej¶cie z jednego obrazu do
+drugiego podczas gdy oba s± animowane.
 
 %prep
 %setup -q
