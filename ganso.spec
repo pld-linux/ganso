@@ -15,6 +15,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml-devel
+BuildRequires:	smpeg-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/X11
@@ -51,7 +52,7 @@ drugiego podczas gdy oba s± animowane.
 
 %prep
 %setup -q
-#%patch -p1
+%patch0 -p1
 
 %build
 rm -f missing
