@@ -1,15 +1,17 @@
-Summary:	GNOME Animation Studio
+Summary:	GAnSO - Gnome Animation StudiO
 Name:		ganso
 Version:	0.1.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ceu.fi.udc.es/os/linux/gpul/%{name}-%{version}.tar.bz2
+Group(de):	X11/Applikationen/Grafik
+Group(pl):	X11/Aplikacje/Grafika
+Source0:	ftp://ftp.gpul.org/gpul/%{name}-%{version}.tar.bz2
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml-devel
-URL:		http://ganso.gpul.org
+URL:		http://www.gpul.org/proyectos/ganso/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/X11
@@ -34,7 +36,8 @@ both keep animated.
 %setup -q
 
 %build
-CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions -fno-implicit-templates"; export CXXFLAGS
+CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-rtti -fno-exceptions -fno-implicit-templates"
+export CXXFLAGS
 gettextize --copy --force
 %configure \
 	--disable-static
@@ -45,10 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/ganso/{codecs,plugins}/*.so
-
-gzip -9nf AUTHORS ChangeLog NEWS README \
-	$RPM_BUILD_ROOT%{_mandir}/man1/*
+gzip -9nf AUTHORS ChangeLog NEWS README
 
 %find_lang %{name}
 
