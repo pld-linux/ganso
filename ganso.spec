@@ -55,6 +55,8 @@ do drugiego podczas gdy oba s± animowane.
 %patch -p1
 
 %build
+rm -f missing
+libtoolize --copy --force
 gettextize --copy --force
 aclocal -I macros
 autoconf
