@@ -2,12 +2,13 @@ Summary:	GAnSO - GNOME Animation StudiO
 Summary(pl):	Studio animacji dla GNOME
 Name:		ganso
 Version:	0.2.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/ganso/%{name}-%{version}.tar.bz2
 # Source0-md5:	629daa8af0dc91efd1dd617858102415
 Patch0:		%{name}-am_fix.patch
+Patch1:		%{name}-build.patch
 URL:		http://ganso.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -52,9 +53,9 @@ drugiego podczas gdy oba s± animowane.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__gettextize}
 %{__aclocal} -I macros
@@ -68,7 +69,10 @@ CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -fno-implicit-templates"
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/ganso/{*,*/*,*/*/*}/*.la
 
 %find_lang %{name}
 
@@ -79,11 +83,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %dir %{_sysconfdir}/ganso
-%config %{_sysconfdir}/ganso/ganso.conf
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/ganso/ganso.conf
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/ganso
 %dir %{_libdir}/ganso/codecs
+%dir %{_libdir}/ganso/codecs/input
+%dir %{_libdir}/ganso/codecs/input/video
+%dir %{_libdir}/ganso/codecs/output
 %dir %{_libdir}/ganso/plugins
-%attr(755,root,root) %{_libdir}/ganso/codecs/*
-%attr(755,root,root) %{_libdir}/ganso/plugins/*
+%attr(755,root,root) %{_libdir}/ganso/codecs/input/video/*.so
+%attr(755,root,root) %{_libdir}/ganso/codecs/output/*.so
+%attr(755,root,root) %{_libdir}/ganso/plugins/*.so
 %{_mandir}/man1/*
