@@ -83,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %dir %{_sysconfdir}/ganso
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/ganso/ganso.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ganso/ganso.conf
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/ganso
 %dir %{_libdir}/ganso/codecs
