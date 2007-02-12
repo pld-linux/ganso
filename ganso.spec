@@ -1,5 +1,5 @@
 Summary:	GAnSO - GNOME Animation StudiO
-Summary(pl):	Studio animacji dla GNOME
+Summary(pl.UTF-8):   Studio animacji dla GNOME
 Name:		ganso
 Version:	0.2.0
 Release:	2
@@ -36,19 +36,19 @@ decreasing/increasing of a stream, effect that is very used in
 professional creations to change from one video to another one while
 both keep animated.
 
-%description -l pl
-GAnSO (GNOME Animation StudiO) to studio animacji pozwalaj±ce tworzyæ
-w³asne filmy z d¼wiêkiem lub bez.
+%description -l pl.UTF-8
+GAnSO (GNOME Animation StudiO) to studio animacji pozwalajÄ…ce tworzyÄ‡
+wÅ‚asne filmy z dÅºwiÄ™kiem lub bez.
 
-Mo¿e zapisywaæ w takich formatach, dla jakich codeki masz w systemie.
+MoÅ¼e zapisywaÄ‡ w takich formatach, dla jakich codeki masz w systemie.
 
-Ten pakiet zawiera g³ówn± czê¶æ GAnSO, codec MPEG-1 oraz przyk³adow±
-wtyczkê, która zawiera filtr, edytor strumieni i wzorzec, ¿eby pokazaæ
-jak ³atwo mo¿na rozszerzaæ GAnSO, ale mo¿e byæ tak¿e u¿yteczna przy
-tworzeniu filmów, jako ¿e ten filtr przeprowadza progresywne
-zmniejszanie/zwiêkszanie kana³u alpha strumienia, co daje efekt czêsto
-u¿ywany w profesjonalnych filmach - przej¶cie z jednego obrazu do
-drugiego podczas gdy oba s± animowane.
+Ten pakiet zawiera gÅ‚Ã³wnÄ… czÄ™Å›Ä‡ GAnSO, codec MPEG-1 oraz przykÅ‚adowÄ…
+wtyczkÄ™, ktÃ³ra zawiera filtr, edytor strumieni i wzorzec, Å¼eby pokazaÄ‡
+jak Å‚atwo moÅ¼na rozszerzaÄ‡ GAnSO, ale moÅ¼e byÄ‡ takÅ¼e uÅ¼yteczna przy
+tworzeniu filmÃ³w, jako Å¼e ten filtr przeprowadza progresywne
+zmniejszanie/zwiÄ™kszanie kanaÅ‚u alpha strumienia, co daje efekt czÄ™sto
+uÅ¼ywany w profesjonalnych filmach - przejÅ›cie z jednego obrazu do
+drugiego podczas gdy oba sÄ… animowane.
 
 %prep
 %setup -q
