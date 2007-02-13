@@ -1,5 +1,5 @@
 Summary:	GAnSO - GNOME Animation StudiO
-Summary(pl.UTF-8):   Studio animacji dla GNOME
+Summary(pl.UTF-8):	Studio animacji dla GNOME
 Name:		ganso
 Version:	0.2.0
 Release:	2
