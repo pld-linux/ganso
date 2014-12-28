@@ -12,7 +12,7 @@ Patch1:		%{name}-build.patch
 URL:		http://ganso.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-libs-devel >= 1.0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
